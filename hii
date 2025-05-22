@@ -1,0 +1,142 @@
+# 1.is this a web application or standalone application
+  This is a web application built using Streamlit.his command will start a local web server and open the application in your default web browser.
+# 2.loc -lines of codes
+   questions from this loc
+# 3.gui or cli 
+   gui
+# 4.interface how it was used
+   streamlit 
+# 5.interface of the project explaination
+### 6.roles of u in the project
+# 7.gemini pro pretrained or any other model
+# 8.when gemini pro model was being used in ur project then what was ur effeor in that and how u utilised in the project
+# RAG  -  RETRIVAL AUGMENTED REALITY
+
+"""import streamlit as st
+import os
+from PyPDF2 import PdfReader
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+# Load environment variables
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+if not GOOGLE_API_KEY:
+    st.error("Google API Key is missing! Please set it in the .env file.")
+else:
+    genai.configure(api_key=GOOGLE_API_KEY)
+
+# Function to extract text from multiple PDFs
+def extract_text_from_pdf(pdf_files):
+    extracted_texts = []
+    for pdf_file in pdf_files:
+        try:
+            pdf_reader = PdfReader(pdf_file)
+            text = "\n".join([page.extract_text() for page in pdf_reader.pages if page.extract_text()])
+            if text.strip():
+                extracted_texts.append(text.strip())
+            else:
+                st.warning(f"Could not extract text from {pdf_file.name}. It may be an image-based PDF.")
+        except Exception as e:
+            st.error(f"Error reading {pdf_file.name}: {str(e)}")
+    return extracted_texts
+
+# Set up the page configuration
+st.set_page_config(page_title="Multi-PDF Tool", page_icon="📚", layout="wide")
+
+# Create a navigation system using session state
+if "selected_page" not in st.session_state:
+    st.session_state.selected_page = "home"
+
+# Function to set selected page
+def set_page(page):
+    st.session_state.selected_page = page
+
+# Define the navigation buttons at the top
+st.markdown("<h1 style='text-align: center;'>📚 Multi-PDF Tool</h1>", unsafe_allow_html=True)
+st.write("**Easily process PDFs: Ask questions, summarize, generate quizzes, and more!**")
+st.write("---")
+
+# Home Page Content
+if st.session_state.selected_page == "home":
+    st.header("📂 Upload & Process PDFs")
+    st.write("Upload multiple PDFs to unlock various functionalities like summarization, question answering, mind maps, and more.")
+    
+    if "text_chunks" not in st.session_state:
+        st.session_state.text_chunks = []
+    
+    uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
+    
+    if uploaded_files:
+        extracted_texts = extract_text_from_pdf(uploaded_files)
+        if extracted_texts:
+            st.session_state.text_chunks = extracted_texts  # Store in session state
+            st.success(f"Extracted text from {len(uploaded_files)} PDFs successfully!")
+
+    st.write("---")
+    st.subheader("🔍 Features & Tools")
+    
+    # Display feature sections with buttons
+    feature_data = [
+        ("q&a❓", "Ask questions from PDFs.", "qna"),
+        ("chat🤖", "Paraphrase any content.", "chat"),
+        ("📚sum", "Generate concise summaries.", "summary"),
+        ("📝quiz", "Create quizzes from PDFs.", "quiz"),
+        ("🧠map", "Generate a mind map.", "mindmap"),
+        ("📊 chat", "Visualize insights from PDFs.", "visual"),
+        ("📖books", "Get book recommendations.", "books"),
+        ("link🔗", "Extract links from PDFs.", "links"),
+        ("hangman🎮", "Play Hangman for fun.", "hangman")
+    ]
+    
+    cols = st.columns(3)  # Arrange in three columns
+    for i, (emoji, description, page) in enumerate(feature_data):
+        with cols[i % 3]:  # Distribute across columns
+            st.subheader(emoji)
+            st.write(description)
+            if st.button(f"Go to {emoji}", key=page):
+                set_page(page)
+
+# Feature Page Navigation with "Go Back to Home" Button
+def feature_page(page_function):
+    """Wrapper function to display feature content and add a 'Go Back' button."""
+    page_function()
+    st.write("---")
+    if st.button("⬅️ Go Back to Home"):
+        set_page("home")
+
+if st.session_state.selected_page == "qna":
+    from pages.Contextquestion import answer
+    feature_page(answer)
+
+elif st.session_state.selected_page == "chat":
+    from pages.Paraphrase import para
+    feature_page(para)
+
+elif st.session_state.selected_page == "summary":
+    from pages.Summary import summary
+    feature_page(summary)
+
+elif st.session_state.selected_page == "quiz":
+    from pages.Quiz import quiz
+    feature_page(quiz)
+
+elif st.session_state.selected_page == "mindmap":
+    from pages.Mindmap import mind
+    feature_page(mind)
+
+elif st.session_state.selected_page == "visual":
+    from pages.Visual import visual
+    feature_page(visual)
+
+elif st.session_state.selected_page == "books":
+    from pages.BookRecommned import book
+    feature_page(book)
+
+elif st.session_state.selected_page == "links":
+    from pages.Link import link
+    feature_page(link)
+
+elif st.session_state.selected_page == "hangman":
+    from pages.Hangman import game
+    feature_page(game)"""

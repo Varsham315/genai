@@ -1,0 +1,123 @@
+/* 🌙 Sidebar Styling - Matching Gradient */
+[data-testid="stSidebar"] {
+    background: linear-gradient(to bottom right, #5a189a, #1e6091); /* Matching Gradient */
+    /*background: linear-gradient(to bottom right, #3c1053, #ad5389);*/
+    /*background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);*/
+    color: white;
+    padding: 20px;
+    border-right: 4px solid #FFD700; /* Gold Border */
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push Menu to Bottom */
+    height: 100vh; /* Full Height */
+}
+
+/* 📌 Sidebar Image Styling */
+.sidebar-image {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 130px; /* Adjust size */
+    border-radius: 50%;
+    border: 3px solid #FFD700; /* Gold border for a premium feel */
+    box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
+}
+
+/* 🎯 Sidebar Menu at Bottom */
+.sidebar-menu {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+/* 📌 Sidebar Titles */
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3 {
+    color: #FFD700; /* Gold for Contrast */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 🎯 Sidebar Buttons */
+button {
+    background: #FFD700 !important; /* Gold */
+    color: black !important;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔥 Button Hover Effect */
+button:hover {
+    background: #f0a500 !important; /* Rich Orange on hover */
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* 🎨 Main Background - Smooth Gradient */
+.stApp {
+    /*background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);*/
+    background: linear-gradient(to bottom right, #5a189a, #1e6091);
+    color: white; /* Ensures Readability */
+    font-family: 'Arial', sans-serif;
+}
+
+/* 🔥 Main Container - No Boxes, Smooth Look */
+.main-container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+    background: transparent; /* No Background Boxes */
+    border-radius: 15px;
+}
+
+/* 📝 Headings (No Boxes) */
+h1, h2, h3 {
+    color: #FFD700; /* Gold Text */
+    font-weight: bold;
+    text-align: center;
+    background: transparent; /* No Boxes */
+    padding: 5px 0;
+}
+
+/* 📌 Body Text */
+.stMarkdown {
+    background: transparent !important; /* Removes Background */
+    color: white !important; /* Ensures Readability */
+    padding: 0; /* Removes Padding */
+    font-size: 18px;
+}
+
+/* 🖼️ Center Images Properly */
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🎯 Input & Text Area Styling */
+input, textarea, select {
+    border-radius: 8px;
+    border: 2px solid #FFD700;
+    padding: 10px;
+    font-size: 16px;
+    background: white;
+    color: black;
+    transition: 0.2s;
+}
+
+/* 🎯 Input Focus Effect */
+input:focus, textarea:focus, select:focus {
+    border-color: #f0a500;
+    box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.7);
+}
+
+/* ⚡ Remove Borders & Boxes for Clean Look */
+.stAlert, .stMarkdown, .stTextInput, .stButton {
+    border: none !important;
+    box-shadow: none !important;
+}

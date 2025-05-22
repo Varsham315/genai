@@ -1,0 +1,12 @@
+streamlit
+google-generativeai
+PyPDF2
+langchain
+deep-translator
+pyttsx3
+gTTS
+matplotlib
+wordcloud
+requests
+serpapi
+python-dotenv
